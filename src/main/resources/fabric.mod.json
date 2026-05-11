@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "florality",
+  "version": "${version}",
+  "name": "Florality",
+  "description": "plants and automation",
+  "authors": [],
+  "contact": {},
+  "license": "unlicense",
+  "icon": "assets/florality/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.peak.florality.client.FloralityDataGenerator"
+    ],
+    "client": [
+      "com.peak.florality.client.FloralityClient"
+    ],
+    "main": [
+      "com.peak.florality.Florality"
+    ]
+  },
+  "mixins": [
+    "florality.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
