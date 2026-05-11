@@ -1,4 +1,4 @@
-package com.peak.florality.phys.entity;
+package com.peak.florality.phys.entity.core;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -47,17 +47,17 @@ public class RigidBodyEntity extends Entity {
     public void tick() {
         super.tick();
 
-        if (followPath != null && pathIndex < followPath.getPoints().size()) {
-            Vector3d target = followPath.getPoints().get(pathIndex).toVector();
-            Vector3d pos = new Vector3d(this.getX(), this.getY(), this.getZ());
-            Vector3d dir = new Vector3d(target).sub(pos);
-            double distance = dir.length();
-            if (distance < 0.01) pathIndex++;
-            else {
-                dir.normalize().mul(pathSpeed);
-                velocity = new Vec3d(dir.x, dir.y, dir.z);
-            }
-        }
+//        if (followPath != null && pathIndex < followPath.getPoints().size()) {
+//            Vector3d target = followPath.getPoints().get(pathIndex)(;
+//            Vector3d pos = new Vector3d(this.getX(), this.getY(), this.getZ());
+//            Vector3d dir = new Vector3d(target).sub(pos);
+//            double distance = dir.length();
+//            if (distance < 0.01) pathIndex++;
+//            else {
+//                dir.normalize().mul(pathSpeed);
+//                velocity = new Vec3d(dir.x, dir.y, dir.z);
+//            }
+//        }
 
         if (!this.isOnGround()) velocity = velocity.add(0, -0.08, 0);
         velocity = velocity.multiply(1 - drag);
